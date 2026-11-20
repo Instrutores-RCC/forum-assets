@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia da Central do SRC</title>
+<meta name="description" content="Cada tela da Central do SRC, para que serve e quem vê.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&amp;family=Ubuntu+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --degrau: rgba(0,24,48,.28); --listra: #fdfdfd;
+  --fundo: #00284d; --elevado: #e7edf4; --cartao: #fdfdfd;
+  --borda: #b3c4d5; --borda-forte: #6f8398;
+  --texto: #0a1f38; --texto2: #3b4b5e; --texto3: #4a5a6d;
+  --titulo: #00427b; --link: #005fb2; --marca: #005fb2; --marca-escura: #00427b;
+  --rosa-marca: #a52381; --sobre-marca: #fdfdfd; --azul-claro: #e3effb;
+  --rosa-texto: #a52381; --rosa-claro: #fde6f6;
+  --indigo: #584db9; --indigo-claro: #efedff;
+  --ok: #1d6b3f; --ok-claro: #e8f6ee; --ambar: #7a4b00; --ambar-claro: #fff1d6;
+  --sf-texto: #fdfdfd; --sf-texto2: #dbe8f5; --sf-texto3: #a9c8e8; --sf-link: #9fd0ff; --sf-borda: #1f4a73;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --degrau: rgba(0,0,0,.5); --listra: #8d9aa8;
+    --fundo: #05090f; --elevado: #141e2b; --cartao: #0c141e;
+    --borda: #243243; --borda-forte: #4f6a87;
+    --texto: #c6d0db; --texto2: #a6b3c1; --texto3: #8e9cac;
+    --titulo: #9dbad6; --link: #6e9fcf; --marca: #1f5d96; --marca-escura: #123b60;
+    --rosa-marca: #86226b; --sobre-marca: #e3eaf2; --azul-claro: #11233a;
+    --rosa-texto: #dc8cc3; --rosa-claro: #28111f;
+    --indigo: #9ba1e6; --indigo-claro: #1d1e3d;
+    --ok: #72c094; --ok-claro: #0d281b; --ambar: #e0b66a; --ambar-claro: #291d07;
+    --sf-texto: #c6d0db; --sf-texto2: #a6b3c1; --sf-texto3: #8e9cac; --sf-link: #6e9fcf; --sf-borda: #243243;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 12px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 15px/1.55 'Ubuntu', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--rosa-claro); color: var(--rosa-texto); }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #f233be; outline-offset: 1px; border-radius: 6px; }
+.mono { font-family: 'Ubuntu Mono', monospace; font-weight: 700; }
+
+/* faixa de topo: céu do correio, igual à Central */
+.faixa { position: relative; overflow: hidden; background: var(--fundo) url("https://i.imgur.com/sMnDbCW.jpg") center 35%/cover no-repeat; color: var(--sobre-marca); }
+.faixa::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,24,48,.7), rgba(0,24,48,.35) 55%, rgba(0,24,48,0)), linear-gradient(180deg, rgba(0,40,77,0) 50%, var(--fundo)); }
+.faixa::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: repeating-linear-gradient(135deg, var(--marca) 0 14px, var(--listra) 14px 20px, var(--rosa-marca) 20px 34px, var(--listra) 34px 40px); }
+.faixa-in { position: relative; max-width: 860px; margin: 0 auto; min-height: 140px; padding: 22px 140px 26px 16px; display: flex; flex-direction: column; justify-content: center; }
+.faixa .rotulo { font-size: 13px; font-weight: 700; color: var(--sf-texto2); }
+.faixa h1 { margin: 2px 0 0; font-size: 22px; line-height: 1.15; text-shadow: 0 2px 0 rgba(0,24,48,.9); text-wrap: balance; }
+.hamster { position: absolute; right: -10px; bottom: 6px; width: 152px; height: 122px; image-rendering: pixelated; pointer-events: none; }
+
+main { max-width: 860px; margin: 0 auto; padding: 16px 12px 8px; }
+.intro { color: var(--sf-texto2); margin: 4px 4px 16px; max-width: 65ch; }
+
+/* carta: cartão branco com listra azul no topo e degrau embaixo */
+.carta { background: var(--cartao); border: 1px solid var(--borda-forte); border-top: 4px solid var(--link); border-radius: 10px; padding: 14px 16px 18px; margin: 0 0 18px; box-shadow: 0 3px 0 var(--degrau); }
+.carta > h2 { position: relative; margin: 0 0 12px; padding-bottom: 6px; border-bottom: 2px dashed var(--borda-forte); font-size: 18px; line-height: 1.25; color: var(--titulo); }
+.carta > h2::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 44px; height: 4px; border-radius: 2px; background: var(--rosa-texto); }
+h3 { margin: 18px 0 6px; font-size: 15px; color: var(--titulo); }
+p { margin: 8px 0; max-width: 70ch; }
+
+/* índice: as seções em duas colunas */
+.indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.indice a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--cartao); color: var(--texto); text-decoration: none; font-weight: 500; font-size: 14px; box-shadow: 0 2px 0 var(--degrau); transition: background-color 150ms, border-color 150ms; }
+.indice a::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 2px; background: var(--rosa-texto); transform: rotate(45deg); }
+.indice a:hover { background: var(--azul-claro); border-color: var(--link); }
+.indice a:active { transform: translateY(2px); box-shadow: none; }
+
+/* Onde: o caminho na tela */
+.onde { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0 0 10px; padding: 10px 12px; border-radius: 6px; background: var(--azul-claro); max-width: none; }
+.onde .rot { flex: none; font-size: 12px; font-weight: 700; color: var(--link); border: 2px solid currentColor; border-radius: 4px; padding: 1px 6px; transform: rotate(-2deg); }
+.caminho { font-weight: 700; color: var(--titulo); }
+.caminho .sep { color: var(--texto3); font-weight: 400; margin: 0 2px; }
+
+/* aviso: faixa de envelope aéreo no topo */
+.aviso { margin: 14px 0 0; padding: 16px 14px 10px; border: 1px solid var(--borda-forte); border-radius: 6px; background: repeating-linear-gradient(135deg, var(--marca) 0 10px, var(--cartao) 10px 20px) top/100% 6px no-repeat, var(--cartao); color: var(--texto2); max-width: none; }
+.aviso b { color: var(--texto); }
+
+/* passos numerados */
+ol.passos { list-style: none; margin: 8px 0 0; padding: 0; counter-reset: p; }
+ol.passos li { counter-increment: p; position: relative; padding: 4px 0 4px 36px; margin: 4px 0; min-height: 30px; }
+ol.passos li::before { content: counter(p); position: absolute; left: 0; top: 3px; display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--cartao); color: var(--titulo); font: 700 13px 'Ubuntu Mono', monospace; box-shadow: 0 2px 0 var(--degrau); }
+ul.pontos { margin: 8px 0 0; padding-left: 20px; }
+ul.pontos li { margin: 5px 0; }
+ul.pontos li::marker { color: var(--rosa-texto); }
+
+/* tabela: vira lista de duas linhas no celular */
+.tabela { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.tabela th { text-align: left; font-size: 12px; color: var(--texto2); padding: 6px 8px; border-bottom: 2px solid var(--borda-forte); }
+.tabela td { padding: 10px 8px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+.tabela tr:last-child td { border-bottom: 0; }
+.tabela td:first-child { font-weight: 700; width: 42%; }
+@media (max-width: 560px) {
+  .tabela thead { display: none; }
+  .tabela, .tabela tbody, .tabela tr, .tabela td { display: block; width: auto; }
+  .tabela tr { padding: 10px 0; border-bottom: 1px solid var(--borda); }
+  .tabela tr:last-child { border-bottom: 0; }
+  .tabela td, .tabela td:first-child { padding: 2px 0; border: 0; width: auto; }
+}
+
+/* carimbo de status, igual ao da Central */
+.carimbo { display: inline-flex; align-items: center; min-height: 24px; padding: 0 7px; border: 2px solid currentColor; border-radius: 4px; transform: rotate(-2deg); font-size: 12px; font-weight: 700; line-height: 1; white-space: nowrap; }
+tr:nth-child(even) .carimbo { transform: rotate(1.5deg); }
+.c-ok { color: var(--ok); background: var(--ok-claro); }
+.c-falta { color: var(--ambar); background: var(--ambar-claro); }
+.c-hoje { color: var(--rosa-texto); background: var(--rosa-claro); }
+.c-espera { color: var(--link); background: var(--azul-claro); }
+
+.c-roxo { color: var(--indigo); background: var(--indigo-claro); }
+.quem { display: flex; flex-wrap: wrap; gap: 8px; margin: -2px 0 10px; }
+
+/* exemplo de cartão da Central */
+.exemplo { margin: 12px 0 4px; padding: 10px 14px; border: 1px dashed var(--borda-forte); border-radius: 10px; background: var(--elevado); max-width: 420px; }
+.exemplo .nome { font-weight: 700; color: var(--texto); }
+.exemplo .sub { color: var(--texto2); font-size: 13px; }
+.exemplo .carimbo { margin-top: 6px; }
+
+/* botão principal: abrir a Central */
+.botao { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 8px; background: #005fb2; color: #fdfdfd; font-weight: 700; text-decoration: none; box-shadow: inset 0 -2px 0 var(--marca-escura), 0 2px 0 var(--degrau); margin-top: 12px; }
+.botao:active { transform: translateY(2px); box-shadow: inset 0 -2px 0 var(--marca-escura); }
+
+/* dúvidas: linhas que abrem, como no Manual da Central */
+.duvidas { padding-bottom: 6px; }
+.duvidas details { border-top: 1px solid var(--borda); }
+.duvidas details:first-of-type { border-top: 0; }
+.duvidas summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 4px; font-weight: 700; color: var(--texto); transition: background-color 150ms; }
+.duvidas summary::-webkit-details-marker { display: none; }
+.duvidas summary:hover { background: var(--elevado); }
+.duvidas summary svg { flex: none; width: 20px; height: 20px; color: var(--texto3); transition: transform 150ms; }
+.duvidas details[open] summary svg { transform: rotate(90deg); }
+.duvidas details p { margin: 0 0 14px 36px; color: var(--texto2); }
+
+footer { text-align: center; color: var(--sf-texto3); font-size: 12px; padding: 4px 16px 24px; }
+
+@media (min-width: 721px) {
+  .faixa-in { min-height: 170px; padding-left: 24px; }
+  .faixa h1 { font-size: 30px; }
+  main { padding-top: 20px; }
+  .hamster { right: 24px; }
+}
+</style>
+</head>
+<body>
+<header class="faixa">
+  <div class="faixa-in">
+    <span class="rotulo">Setor de Relações Comunicativas</span>
+    <h1>Guia da Central do SRC</h1>
+  </div>
+  <img class="hamster" src="https://i.imgur.com/kxxzGJK.png" width="152" height="122" alt="">
+</header>
+
+<main>
+<p class="intro">Cada tela da Central do SRC, para que serve e quem vê. A Central mostra só o que o seu cargo usa, então algumas telas daqui você não vai ver.</p>
+
+<nav class="carta indice" aria-label="Telas da Central">
+  <ol>
+    <li><a href="#comecar">Antes de começar</a></li>
+    <li><a href="#escala">Escala</a></li>
+    <li><a href="#secretarios">Secretários</a></li>
+    <li><a href="#minha-funcao">Minha função</a></li>
+    <li><a href="#funcao">A tela de uma função</a></li>
+    <li><a href="#concluir">Concluir e Justificar</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#montar">Montar escala</a></li>
+    <li><a href="#artes">Artes</a></li>
+    <li><a href="#bbcode">Gerador de BBCode</a></li>
+    <li><a href="#manual">Manual</a></li>
+    <li><a href="#rh">RH</a></li>
+    <li><a href="#mais">Mais</a></li>
+  </ol>
+</nav>
+
+<section class="carta" id="comecar">
+  <h2>Antes de começar</h2>
+  <p>A Central é uma página do fórum. Ela sabe quem você é pela sua conta do fórum: entre no fórum antes de abrir.</p>
+  <ul class="pontos">
+    <li><b>O que cada um vê</b> depende do cargo na listagem do SRC: analista, secretário, liderança, Ministério dos INS ou designer.</li>
+    <li><b>Chave pessoal:</b> se a liderança te mandar uma, cole no campo da chave e toque em Guardar chave. Ela fica só no seu navegador.</li>
+    <li><b>Tema:</b> o botão de lua ou sol no topo troca entre claro e escuro.</li>
+    <li><b>Nada é postado pela Central.</b> Você faz a função no lugar de sempre (grupo, fórum ou MP) e a Central só registra.</li>
+  </ul>
+  <a class="botao" href="https://www.policiarcc.com/h471-ins-src-central" target="_top">Abrir a Central do SRC</a>
+</section>
+
+<section class="carta" id="escala">
+  <h2>Escala</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <p>A semana dos analistas, dia por dia. É a primeira tela da Central.</p>
+  <ul class="pontos">
+    <li><b>Título da semana:</b> o período ("Semana de 22 a 28 de outubro"), com <b>Semana anterior</b> e <b>Atualizar</b> ao lado.</li>
+    <li><b>Resumo:</b> quantas funções, quantas concluídas, vencendo hoje e não concluídas, e a eficiência da semana.</li>
+    <li><b>Filtros:</b> Todas, Atrasadas, Pendentes e Concluídas. Em <b>Filtrar</b>, escolha a área ou "Minha". Secretário tem também "Que fiscalizo".</li>
+    <li><b>Cartões:</b> cada função mostra o nome ("Função C182"), a área, quem faz, o supervisor e a situação. Toque para abrir.</li>
+    <li><b>Melhores do mês:</b> o ranking das semanas já fechadas.</li>
+  </ul>
+  <div class="exemplo" aria-label="Exemplo de cartão da Escala">
+    <div class="nome">Função <span class="mono">C182</span> · Divulgação</div>
+    <div class="sub">Reunião Quinzenal (sexta) · Ana.Vel · Supervisão: Tobi.Mar</div>
+    <span class="carimbo c-espera">Pendente</span>
+  </div>
+</section>
+
+<section class="carta" id="secretarios">
+  <h2>Secretários</h2>
+  <p class="quem"><span class="carimbo c-roxo">Secretário</span><span class="carimbo c-hoje">Liderança</span></p>
+  <p>A escala dos secretários, no mesmo formato da Escala. No celular fica em <span class="caminho">Mais <span class="sep">›</span> Escala dos secretários</span>.</p>
+  <p>A <b>Supervisão</b> de cada secretário mostra quem ela cobre ("3 funções de Theo.Rx, Ana.Vel e Iris-Moon") e quantas já foram resolvidas. A liderança tem aqui o botão <b>Montar escala dos secretários</b>.</p>
+</section>
+
+<section class="carta" id="minha-funcao">
+  <h2>Minha função</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <p>Só o que está no seu nome nesta semana, com o prazo. Embaixo ficam as suas demandas extras e os seus registros fora da escala.</p>
+  <p>Os avisos do topo aparecem aqui, na Escala e em Equipe: função que precisa ir para outro membro, a sua supervisão com algo faltando e, para a liderança, registros esperando decisão.</p>
+</section>
+
+<section class="carta" id="funcao">
+  <h2>A tela de uma função</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <p>Abre ao tocar num cartão. Traz tudo para fazer a função sem sair dali:</p>
+  <ol class="passos">
+    <li><b>Como fazer:</b> prazo, onde postar e o passo a passo do manual, com a descrição pronta para copiar.</li>
+    <li><b>Lista:</b> o que a liderança ou o Ministério preencheu para a semana (promovidos, destaques).</li>
+    <li><b>Arte:</b> a arte pronta, ou o atalho para gerar em Artes.</li>
+    <li><b>Texto:</b> o modelo do manual já com a lista da semana, para copiar.</li>
+  </ol>
+  <p>Embaixo ficam <b>Concluir</b> e <b>Justificar</b>. Funções que dependem de conteúdo da semana têm também <b>Não teve o que postar?</b>.</p>
+  <p>Secretário vê ainda, nas funções que supervisiona, <b>Fiscalizar função</b>, <b>Liberar postagem atrasada</b> e <b>Assumir função</b>. O passo a passo está no Manual de Funções dos Secretários.</p>
+</section>
+
+<section class="carta" id="concluir">
+  <h2>Concluir e Justificar</h2>
+  <p class="quem"><span class="carimbo c-espera">Dono da função</span></p>
+  <p class="onde"><span class="rot">Onde</span><span class="caminho">Minha função <span class="sep">›</span> a função <span class="sep">›</span> Concluir</span></p>
+  <ol class="passos">
+    <li>Faça a função no lugar de sempre.</li>
+    <li>Toque em <b>Concluir</b>, cole o link do print em <b>Link da prova</b> e toque em <b>Enviar conclusão</b>.</li>
+    <li>O secretário que supervisiona confere o print. Se reprovar, a função volta para você com o motivo.</li>
+  </ol>
+  <p>Não deu para fazer? <b>Justificar</b>, escreva o motivo e toque em <b>Enviar justificativa</b>. Justificativa depois do prazo fica registrada, mas conta como não concluída.</p>
+</section>
+
+<section class="carta" id="equipe">
+  <h2>Equipe</h2>
+  <p class="quem"><span class="carimbo c-roxo">Secretário</span><span class="carimbo c-hoje">Liderança</span></p>
+  <p>A aba mostra um número quando tem coisa esperando você. Cada cargo abre numa vista diferente:</p>
+  <table class="tabela">
+    <thead><tr><th>Vista</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td>Minha supervisão</td><td>Secretário: <b>Para decidir</b> (registros dos seus analistas), <b>Para conferir</b> (prints) e as funções com você de supervisor.</td></tr>
+      <tr><td>Montar escala</td><td>Liderança: montar a semana, pedidos, acesso e carga. Detalhe na próxima seção.</td></tr>
+      <tr><td>Todos</td><td>Liderança: cada membro com a semana aberta, as últimas semanas, o pulso, os registros e as advertências ativas.</td></tr>
+      <tr><td>Membros</td><td>A lista de membros da Central, com cargo e departamento.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="carta" id="montar">
+  <h2>Montar escala</h2>
+  <p class="quem"><span class="carimbo c-hoje">Liderança</span></p>
+  <p class="onde"><span class="rot">Onde</span><span class="caminho">Equipe <span class="sep">›</span> Montar escala</span></p>
+  <table class="tabela">
+    <thead><tr><th>Aba</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td>Escala</td><td>Escolher o cargo (Analistas ou Secretários), o período e as funções. A Central sugere quem faz cada uma; você troca e publica de uma vez.</td></tr>
+      <tr><td>Em lote</td><td>Tirar ou passar várias funções de uma vez, com prévia antes de confirmar.</td></tr>
+      <tr><td>Catálogo</td><td>As funções de cada semana: fixa, quinzenal ou única.</td></tr>
+      <tr><td>Carga</td><td>Pontos de cada membro na semana. Ninguém passa de 4; novato tem limite menor.</td></tr>
+      <tr><td>Pedidos</td><td>Registros fora da escala para aprovar ou recusar, e as funções assumidas por secretários.</td></tr>
+      <tr><td>Acesso</td><td>Quem edita a Central, conferido com a listagem do SRC, e as chaves pessoais.</td></tr>
+    </tbody>
+  </table>
+  <p>Monte primeiro a escala dos secretários e depois a dos analistas: a Supervisão de cada secretário lista as funções que ele supervisiona.</p>
+</section>
+
+<section class="carta" id="artes">
+  <h2>Artes</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <ul class="pontos">
+    <li><b>Gerar arte:</b> escolha a arte (Melhores da Semana, Mesversário, Aniversário e outras), digite os nicks, toque em <b>Gerar arte</b> e depois em <b>Baixar arte</b>.</li>
+    <li><b>Pedidos desta semana:</b> as artes que as funções da semana precisam, com "Falta a arte" ou "Arte pronta".</li>
+    <li><b>Artes fixas:</b> as que são as mesmas toda semana.</li>
+  </ul>
+  <p>Designers e liderança enviam a arte pronta por link, e ela aparece na tela da função.</p>
+</section>
+
+<section class="carta" id="bbcode">
+  <h2>Gerador de BBCode</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <p>Monta as MPs e a ATA: Reunião Geral, Novidades, Destaque Semanal e ATA da reunião. Preencha, veja a prévia ao lado e copie. O rascunho fica salvo no seu navegador.</p>
+</section>
+
+<section class="carta" id="manual">
+  <h2>Manual</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <p>O Manual de Funções dentro da Central: busca, filtro por área e, em cada função, o prazo, o passo a passo e a descrição. No celular fica em <span class="caminho">Mais <span class="sep">›</span> Manual de Funções</span>.</p>
+</section>
+
+<section class="carta" id="rh">
+  <h2>RH</h2>
+  <p class="quem"><span class="carimbo c-ok">Ministério</span><span class="carimbo c-hoje">Liderança</span></p>
+  <p>O Ministério dos INS preenche os promovidos da semana, os promovidos internamente e os projetos aprovados. A Central monta com isso as mensagens prontas para copiar e a lista que aparece nas funções de divulgação.</p>
+</section>
+
+<section class="carta" id="mais">
+  <h2>Mais</h2>
+  <p class="quem"><span class="carimbo c-espera">Todos</span></p>
+  <table class="tabela">
+    <thead><tr><th>Item</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td>Registrar função fora da escala</td><td>Avisar que você fez uma função que não estava na escala. A liderança, ou o seu supervisor, decide.</td></tr>
+      <tr><td>Semanas anteriores</td><td>As escalas das semanas que já viraram, só para ler.</td></tr>
+      <tr><td>Escala dos secretários</td><td>No celular, para secretário e liderança.</td></tr>
+      <tr><td>Manual de Funções</td><td>No celular, o mesmo da aba Manual.</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+<footer>Setor de Relações Comunicativas · Companhia dos Instrutores</footer>
+</body>
+</html>
