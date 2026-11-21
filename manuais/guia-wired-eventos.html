@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central do SRC</title>
+<style>body{margin:0;padding:16px;font:16px/1.5 system-ui,sans-serif;color:#0a1f38;background:#fdfdfd}</style>
+</head>
+<body>
+<p id="aviso">Carregando...</p>
+<script>
+fetch('atual.json', { cache: 'no-store' })
+  .then(function (r) { return r.json(); })
+  .then(function (a) { var f = a['guia-wired-eventos']; if (!f) throw new Error('sem versão'); location.replace(f + location.hash); })
+  .catch(function () { document.getElementById('aviso').textContent = 'A página está fora do ar. Tente de novo em alguns minutos.'; });
+</script>
+</body>
+</html>
