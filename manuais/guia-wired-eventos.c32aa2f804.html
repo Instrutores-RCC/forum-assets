@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia de Wired para eventos do SRC</title>
+<meta name="description" content="Como montar com Wired os eventos mais comuns do Departamento de Eventos do SRC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&amp;family=Ubuntu+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --degrau: rgba(0,24,48,.28); --listra: #fdfdfd;
+  --fundo: #00284d; --elevado: #e7edf4; --cartao: #fdfdfd;
+  --borda: #b3c4d5; --borda-forte: #6f8398;
+  --texto: #0a1f38; --texto2: #3b4b5e; --texto3: #4a5a6d;
+  --titulo: #00427b; --link: #005fb2; --marca: #005fb2; --marca-escura: #00427b;
+  --rosa-marca: #a52381; --sobre-marca: #fdfdfd; --azul-claro: #e3effb;
+  --rosa-texto: #a52381; --rosa-claro: #fde6f6;
+  --indigo: #584db9; --indigo-claro: #efedff;
+  --ok: #1d6b3f; --ok-claro: #e8f6ee; --ambar: #7a4b00; --ambar-claro: #fff1d6;
+  --sf-texto: #fdfdfd; --sf-texto2: #dbe8f5; --sf-texto3: #a9c8e8; --sf-link: #9fd0ff; --sf-borda: #1f4a73;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --degrau: rgba(0,0,0,.5); --listra: #8d9aa8;
+    --fundo: #05090f; --elevado: #141e2b; --cartao: #0c141e;
+    --borda: #243243; --borda-forte: #4f6a87;
+    --texto: #c6d0db; --texto2: #a6b3c1; --texto3: #8e9cac;
+    --titulo: #9dbad6; --link: #6e9fcf; --marca: #1f5d96; --marca-escura: #123b60;
+    --rosa-marca: #86226b; --sobre-marca: #e3eaf2; --azul-claro: #11233a;
+    --rosa-texto: #dc8cc3; --rosa-claro: #28111f;
+    --indigo: #9ba1e6; --indigo-claro: #1d1e3d;
+    --ok: #72c094; --ok-claro: #0d281b; --ambar: #e0b66a; --ambar-claro: #291d07;
+    --sf-texto: #c6d0db; --sf-texto2: #a6b3c1; --sf-texto3: #8e9cac; --sf-link: #6e9fcf; --sf-borda: #243243;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 12px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 15px/1.55 'Ubuntu', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--rosa-claro); color: var(--rosa-texto); }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #f233be; outline-offset: 1px; border-radius: 6px; }
+.mono { font-family: 'Ubuntu Mono', monospace; font-weight: 700; }
+
+/* faixa de topo: céu do correio, igual à Central */
+.faixa { position: relative; overflow: hidden; background: var(--fundo) url("https://i.imgur.com/sMnDbCW.jpg") center 35%/cover no-repeat; color: var(--sobre-marca); }
+.faixa::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,24,48,.7), rgba(0,24,48,.35) 55%, rgba(0,24,48,0)), linear-gradient(180deg, rgba(0,40,77,0) 50%, var(--fundo)); }
+.faixa::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: repeating-linear-gradient(135deg, var(--marca) 0 14px, var(--listra) 14px 20px, var(--rosa-marca) 20px 34px, var(--listra) 34px 40px); }
+.faixa-in { position: relative; max-width: 860px; margin: 0 auto; min-height: 140px; padding: 22px 140px 26px 16px; display: flex; flex-direction: column; justify-content: center; }
+.faixa .rotulo { font-size: 13px; font-weight: 700; color: var(--sf-texto2); }
+.faixa h1 { margin: 2px 0 0; font-size: 22px; line-height: 1.15; text-shadow: 0 2px 0 rgba(0,24,48,.9); text-wrap: balance; }
+.hamster { position: absolute; right: -10px; bottom: 6px; width: 152px; height: 122px; image-rendering: pixelated; pointer-events: none; }
+
+main { max-width: 860px; margin: 0 auto; padding: 16px 12px 8px; }
+.intro { color: var(--sf-texto2); margin: 4px 4px 16px; max-width: 65ch; }
+
+/* carta: cartão branco com listra azul no topo e degrau embaixo */
+.carta { background: var(--cartao); border: 1px solid var(--borda-forte); border-top: 4px solid var(--link); border-radius: 10px; padding: 14px 16px 18px; margin: 0 0 18px; box-shadow: 0 3px 0 var(--degrau); }
+.carta > h2 { position: relative; margin: 0 0 12px; padding-bottom: 6px; border-bottom: 2px dashed var(--borda-forte); font-size: 18px; line-height: 1.25; color: var(--titulo); }
+.carta > h2::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 44px; height: 4px; border-radius: 2px; background: var(--rosa-texto); }
+h3 { margin: 18px 0 6px; font-size: 15px; color: var(--titulo); }
+p { margin: 8px 0; max-width: 70ch; }
+
+/* índice: as seções em duas colunas */
+.indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.indice a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--cartao); color: var(--texto); text-decoration: none; font-weight: 500; font-size: 14px; box-shadow: 0 2px 0 var(--degrau); transition: background-color 150ms, border-color 150ms; }
+.indice a::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 2px; background: var(--rosa-texto); transform: rotate(45deg); }
+.indice a:hover { background: var(--azul-claro); border-color: var(--link); }
+.indice a:active { transform: translateY(2px); box-shadow: none; }
+
+/* Onde: o caminho na tela */
+.onde { margin: 0 0 10px; padding: 10px 12px; border-radius: 6px; background: var(--azul-claro); max-width: none; line-height: 1.9; }
+.onde .rot { display: inline-block; margin-right: 8px; line-height: 1.3; font-size: 12px; font-weight: 700; color: var(--link); border: 2px solid currentColor; border-radius: 4px; padding: 1px 6px; transform: rotate(-2deg); }
+.caminho { font-weight: 700; color: var(--titulo); }
+.caminho .sep { color: var(--texto3); font-weight: 400; margin: 0 2px; }
+
+/* aviso: faixa de envelope aéreo no topo */
+.aviso { margin: 14px 0 0; padding: 16px 14px 10px; border: 1px solid var(--borda-forte); border-radius: 6px; background: repeating-linear-gradient(135deg, var(--marca) 0 10px, var(--cartao) 10px 20px) top/100% 6px no-repeat, var(--cartao); color: var(--texto2); max-width: none; }
+.aviso b { color: var(--texto); }
+
+/* passos numerados */
+ol.passos { list-style: none; margin: 8px 0 0; padding: 0; counter-reset: p; }
+ol.passos li { counter-increment: p; position: relative; padding: 4px 0 4px 36px; margin: 4px 0; min-height: 30px; }
+ol.passos li::before { content: counter(p); position: absolute; left: 0; top: 3px; display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--cartao); color: var(--titulo); font: 700 13px 'Ubuntu Mono', monospace; box-shadow: 0 2px 0 var(--degrau); }
+ul.pontos { margin: 8px 0 0; padding-left: 20px; }
+ul.pontos li { margin: 5px 0; }
+ul.pontos li::marker { color: var(--rosa-texto); }
+
+/* tabela: vira lista de duas linhas no celular */
+.tabela { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.tabela th { text-align: left; font-size: 12px; color: var(--texto2); padding: 6px 8px; border-bottom: 2px solid var(--borda-forte); }
+.tabela td { padding: 10px 8px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+.tabela tr:last-child td { border-bottom: 0; }
+.tabela td:first-child { font-weight: 700; width: 42%; }
+@media (max-width: 560px) {
+  .tabela thead { display: none; }
+  .tabela, .tabela tbody, .tabela tr, .tabela td { display: block; width: auto; }
+  .tabela tr { padding: 10px 0; border-bottom: 1px solid var(--borda); }
+  .tabela tr:last-child { border-bottom: 0; }
+  .tabela td, .tabela td:first-child { padding: 2px 0; border: 0; width: auto; }
+}
+
+/* carimbo de status, igual ao da Central */
+.carimbo { display: inline-flex; align-items: center; min-height: 24px; padding: 0 7px; border: 2px solid currentColor; border-radius: 4px; transform: rotate(-2deg); font-size: 12px; font-weight: 700; line-height: 1; white-space: nowrap; }
+tr:nth-child(even) .carimbo { transform: rotate(1.5deg); }
+.c-ok { color: var(--ok); background: var(--ok-claro); }
+.c-falta { color: var(--ambar); background: var(--ambar-claro); }
+.c-hoje { color: var(--rosa-texto); background: var(--rosa-claro); }
+.c-espera { color: var(--link); background: var(--azul-claro); }
+
+.c-roxo { color: var(--indigo); background: var(--indigo-claro); }
+.quem { display: flex; flex-wrap: wrap; gap: 8px; margin: -2px 0 10px; }
+
+/* print da Central: tela de celular, do tamanho de um celular */
+.print { margin: 14px auto 6px; max-width: 280px; text-align: center; }
+.print img { display: block; width: 100%; height: auto; border: 1px solid var(--borda-forte); border-radius: 10px; box-shadow: 0 3px 0 var(--degrau); }
+.print.largo { max-width: 560px; }
+.print figcaption { margin-top: 8px; font-size: 12px; color: var(--texto2); }
+
+/* exemplo de cartão da Central */
+.exemplo { margin: 12px 0 4px; padding: 10px 14px; border: 1px dashed var(--borda-forte); border-radius: 10px; background: var(--elevado); max-width: 420px; }
+.exemplo .nome { font-weight: 700; color: var(--texto); }
+.exemplo .sub { color: var(--texto2); font-size: 13px; }
+.exemplo .carimbo { margin-top: 6px; }
+
+/* botão principal: abrir a Central */
+.botao { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 8px; background: #005fb2; color: #fdfdfd; font-weight: 700; text-decoration: none; box-shadow: inset 0 -2px 0 var(--marca-escura), 0 2px 0 var(--degrau); margin-top: 12px; }
+.botao:active { transform: translateY(2px); box-shadow: inset 0 -2px 0 var(--marca-escura); }
+
+/* dúvidas: linhas que abrem, como no Manual da Central */
+.duvidas { padding-bottom: 6px; }
+.duvidas details { border-top: 1px solid var(--borda); }
+.duvidas details:first-of-type { border-top: 0; }
+.duvidas summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 4px; font-weight: 700; color: var(--texto); transition: background-color 150ms; }
+.duvidas summary::-webkit-details-marker { display: none; }
+.duvidas summary:hover { background: var(--elevado); }
+.duvidas summary svg { flex: none; width: 20px; height: 20px; color: var(--texto3); transition: transform 150ms; }
+.duvidas details[open] summary svg { transform: rotate(90deg); }
+.duvidas details p { margin: 0 0 14px 36px; color: var(--texto2); }
+
+footer { text-align: center; color: var(--sf-texto3); font-size: 12px; padding: 4px 16px 24px; }
+
+@media (min-width: 721px) {
+  .faixa-in { min-height: 170px; padding-left: 24px; }
+  .faixa h1 { font-size: 30px; }
+  main { padding-top: 20px; }
+  .hamster { right: 24px; }
+}
+
+/* pilha de Wired: ativador, condição e efeito, um bloco por linha */
+.pilha { margin: 10px 0; padding: 10px 12px; border: 1px solid var(--borda-forte); border-left: 4px solid var(--indigo); border-radius: 6px; background: var(--elevado); max-width: none; }
+.pilha .nome-pilha { display: block; margin-bottom: 6px; font-weight: 700; color: var(--titulo); }
+.pilha ul { list-style: none; margin: 0; padding: 0; }
+.pilha li { margin: 4px 0; }
+.peca { display: inline-block; min-width: 76px; margin-right: 6px; padding: 1px 6px; border: 2px solid currentColor; border-radius: 4px; font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center; transform: rotate(-2deg); }
+.p-ativ { color: var(--rosa-texto); background: var(--rosa-claro); }
+.p-cond { color: var(--ambar); background: var(--ambar-claro); }
+.p-efe { color: var(--ok); background: var(--ok-claro); }
+.p-extra { color: var(--indigo); background: var(--indigo-claro); }
+
+/* lugar do print que ainda vai chegar */
+.vaga { margin: 14px auto 6px; max-width: 280px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 14px; border: 2px dashed var(--borda-forte); border-radius: 10px; background: var(--elevado); text-align: center; color: var(--texto2); font-size: 13px; }
+.vaga b { color: var(--texto); }
+.vaga .arquivo { font-family: 'Ubuntu Mono', monospace; font-weight: 700; color: var(--texto3); font-size: 12px; }
+
+/* compra: quantidade e peça */
+ul.compra { margin: 8px 0 0; padding-left: 20px; }
+ul.compra li { margin: 4px 0; }
+ul.compra li::marker { color: var(--rosa-texto); }
+.qtd { font-family: 'Ubuntu Mono', monospace; font-weight: 700; color: var(--titulo); }
+
+/* aberto: o que ainda falta confirmar */
+.aberto { margin: 14px 0 0; padding: 10px 12px; border: 1px dashed var(--ambar); border-radius: 6px; background: var(--ambar-claro); color: var(--texto); max-width: none; }
+.aberto b { color: var(--ambar); }
+
+/* ícone oficial da caixa, do servidor do Habbo */
+.ico { width: 28px; height: auto; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
+
+/* desenho da janela "Mobis Wired" do jogo, com o texto dela */
+.janela { margin: 14px auto 6px; max-width: 300px; border: 1px solid var(--borda-forte); border-radius: 8px; background: var(--cartao); color: var(--texto); font-size: 13px; box-shadow: 0 3px 0 var(--degrau); overflow: hidden; }
+.janela .barra { position: relative; padding: 6px 30px; text-align: center; font-size: 12px; color: var(--texto2); background: var(--elevado); }
+.janela .barra::before { content: "\2261"; position: absolute; left: 8px; top: 3px; font-size: 16px; color: var(--texto3); }
+.janela .barra::after { content: "\00d7"; position: absolute; right: 8px; top: 2px; font-size: 16px; font-weight: 700; color: var(--texto3); }
+.janela .tipo { padding: 6px 12px 8px; background: var(--elevado); border-bottom: 1px solid var(--borda); }
+.janela .tipo b { display: block; font-size: 13px; }
+.janela .tipo span { color: var(--texto2); }
+.janela .campo { padding: 8px 12px; border-bottom: 1px solid var(--borda); }
+.janela .campo b { display: block; margin-bottom: 4px; }
+.janela .entrada { padding: 4px 8px; border: 1px solid var(--borda-forte); border-radius: 4px; background: var(--cartao); font-family: 'Ubuntu Mono', monospace; font-weight: 700; }
+.janela .opcao { display: block; margin: 3px 0; color: var(--texto2); }
+.janela .opcao::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border: 1px solid var(--borda-forte); border-radius: 50%; vertical-align: -1px; }
+.janela .opcao.marcada { color: var(--texto); font-weight: 700; }
+.janela .opcao.marcada::before { background: var(--link); border-color: var(--link); }
+.janela .caixinha::before { border-radius: 2px; }
+.janela .avancado { padding: 6px 12px 0; text-align: center; font-size: 12px; text-decoration: underline; color: var(--texto2); }
+.janela .botoes { display: flex; gap: 8px; padding: 8px 12px 10px; }
+.janela .botoes span { flex: 1; padding: 4px 0; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--elevado); text-align: center; font-weight: 700; }
+.janela + .legenda { margin: 4px auto 14px; max-width: 300px; text-align: center; font-size: 12px; color: var(--texto2); }
+
+/* abas sem script: um radio por aba; o painel da aba marcada aparece */
+.aba-radio { position: absolute; opacity: 0; pointer-events: none; }
+.abas { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.abas label { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border: 1px solid var(--borda-forte); border-radius: 6px; background: var(--cartao); color: var(--texto); font-weight: 500; font-size: 14px; cursor: pointer; box-shadow: 0 2px 0 var(--degrau); }
+.painel { display: none; }
+#aba-comece:checked ~ .painel-comece, #aba-ativadores:checked ~ .painel-ativadores, #aba-condicoes:checked ~ .painel-condicoes, #aba-efeitos:checked ~ .painel-efeitos, #aba-seletores:checked ~ .painel-seletores, #aba-variaveis:checked ~ .painel-variaveis, #aba-extras:checked ~ .painel-extras, #aba-aprenda:checked ~ .painel-aprenda, #aba-montar:checked ~ .painel-montar { display: block; }
+#aba-comece:checked ~ .abas label[for="aba-comece"], #aba-ativadores:checked ~ .abas label[for="aba-ativadores"], #aba-condicoes:checked ~ .abas label[for="aba-condicoes"], #aba-efeitos:checked ~ .abas label[for="aba-efeitos"], #aba-seletores:checked ~ .abas label[for="aba-seletores"], #aba-variaveis:checked ~ .abas label[for="aba-variaveis"], #aba-extras:checked ~ .abas label[for="aba-extras"], #aba-aprenda:checked ~ .abas label[for="aba-aprenda"], #aba-montar:checked ~ .abas label[for="aba-montar"] { background: var(--marca); border-color: var(--marca); color: var(--sobre-marca); font-weight: 700; }
+#aba-comece:focus-visible ~ .abas label[for="aba-comece"], #aba-ativadores:focus-visible ~ .abas label[for="aba-ativadores"], #aba-condicoes:focus-visible ~ .abas label[for="aba-condicoes"], #aba-efeitos:focus-visible ~ .abas label[for="aba-efeitos"], #aba-seletores:focus-visible ~ .abas label[for="aba-seletores"], #aba-variaveis:focus-visible ~ .abas label[for="aba-variaveis"], #aba-extras:focus-visible ~ .abas label[for="aba-extras"], #aba-aprenda:focus-visible ~ .abas label[for="aba-aprenda"], #aba-montar:focus-visible ~ .abas label[for="aba-montar"] { outline: 3px solid #f233be; outline-offset: 1px; }
+
+/* uma caixa wired por bloco, dentro das abas de tipo */
+.caixa { padding: 12px 0; border-top: 1px solid var(--borda); }
+.caixa:first-of-type { border-top: 0; }
+.caixa h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 4px; }
+.caixa h3 .ico { margin-right: 2px; }
+.caixa p { margin: 4px 0; }
+.caixa .sub { color: var(--texto2); }
+.caixa .sub b { color: var(--texto); }
+.caixa .aviso-cx b { color: var(--ambar); }
+.selo { font-size: 11px; min-height: 20px; }
+.abas label:hover { background: var(--azul-claro); border-color: var(--link); }
+
+/* pilhas em perspectiva: escala inteira (1x no celular, 2x no computador) para os pixels ficarem nítidos */
+.print.pilha-fig { max-width: none; }
+.print.pilha-fig img { width: 224px; max-width: 100%; height: auto; margin: 0 auto; image-rendering: pixelated; background: #000; }
+@media (min-width: 721px) { .print.pilha-fig img { width: 448px; } }
+
+/* lista de conferir: quadradinho desenhado, sem script */
+ul.check { list-style: none; margin: 8px 0 0; padding: 0; }
+ul.check li { position: relative; padding: 4px 0 4px 30px; margin: 4px 0; }
+ul.check li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 16px; height: 16px; border: 2px solid var(--borda-forte); border-radius: 3px; background: var(--cartao); }
+</style>
+</head>
+<body>
+<header class="faixa">
+  <div class="faixa-in">
+    <span class="rotulo">Departamento de Eventos do SRC</span>
+    <h1>Guia de Wired para eventos</h1>
+  </div>
+  <img class="hamster" src="img/hamster.90dcb5f777.png" width="152" height="122" alt="">
+</header>
+
+<main>
+<p class="intro">O necessário de Wired para montar os eventos do SRC: o que é cada caixa, exercícios para aprender fazendo e o que fazer antes e depois de um evento. Comece pela aba Comece aqui, leia a aba de cada tipo de caixa e depois faça os exercícios.</p>
+
+<input type="radio" name="aba" id="aba-comece" class="aba-radio" checked>
+<input type="radio" name="aba" id="aba-ativadores" class="aba-radio">
+<input type="radio" name="aba" id="aba-condicoes" class="aba-radio">
+<input type="radio" name="aba" id="aba-efeitos" class="aba-radio">
+<input type="radio" name="aba" id="aba-seletores" class="aba-radio">
+<input type="radio" name="aba" id="aba-variaveis" class="aba-radio">
+<input type="radio" name="aba" id="aba-extras" class="aba-radio">
+<input type="radio" name="aba" id="aba-aprenda" class="aba-radio">
+<input type="radio" name="aba" id="aba-montar" class="aba-radio">
+<nav class="abas" aria-label="Abas do guia"><label for="aba-comece">Comece aqui</label><label for="aba-ativadores">Ativadores</label><label for="aba-condicoes">Condições</label><label for="aba-efeitos">Efeitos</label><label for="aba-seletores">Seletores</label><label for="aba-variaveis">Variáveis</label><label for="aba-extras">Extras</label><label for="aba-aprenda">Exercícios</label><label for="aba-montar">Montar evento</label></nav>
+<div class="painel painel-comece">
+<section class="carta" id="comece">
+  <h2>Comece aqui</h2>
+  <p><b>Wired</b> são mobis que fazem o quarto reagir sozinho: levar alguém para um lugar quando ele fala uma palavra, fazer uma esfera correr atrás das pessoas, abrir uma porta com uma alavanca. Não tem código para escrever. Você escolhe as caixas e empilha uma em cima da outra.</p>
+  <p>Uma pilha junta até quatro tipos de caixa. Cada tipo tem uma aba neste guia, com as caixas mais usadas:</p>
+  <div class="pilha" aria-label="Os quatro tipos de caixa">
+    <ul>
+      <li><span class="peca p-ativ">Ativador</span> <b>Quando</b> a pilha dispara. Ex.: alguém diz "iniciar", alguém usa uma alavanca.</li>
+      <li><span class="peca p-cond">Condição</span> <b>Só se</b> algo for verdade. É opcional. Ex.: só se quem falou estiver na cadeira do ministrante.</li>
+      <li><span class="peca p-efe">Efeito</span> <b>O que acontece.</b> Ex.: teleportar, guardar as cadeiras, abrir as portas.</li>
+      <li><span class="peca p-extra">Seletor</span> <b>Em quem</b> o efeito age. É opcional. Sem ele, o efeito age só em quem disparou; com "Habbos na Área", age em todos dentro de uma área.</li>
+    </ul>
+  </div>
+  <ul class="pontos">
+    <li><b>Onde:</b> nos quartos de eventos do grupo, como a [INS/DE²] Sala de Eventos e o [SRC/DE] Eventos.</li>
+    <li><b>Montar é programar.</b> Os wireds de um evento do SRC já ficam no quarto. Montar é configurar as caixas (escrever os comandos, escolher os mobis); desmontar é desprogramar e guardar tudo.</li>
+    <li><b>Pilha</b> é o conjunto de caixas wired empilhadas num mesmo quadrado do piso. <b>Uma pilha é um quadrado só.</b> As caixas da mesma pilha ficam no mesmo quadrado. Caixa fora do quadrado não conversa com as outras.</li>
+    <li><b>O efeito age em quem disparou.</b> Quem diz "iniciar" é quem vai para a área do evento. Pense em quem fala cada comando antes de montar.</li>
+    <li><b>Para configurar</b> uma caixa, dê dois cliques nela. Abre a janela "Mobis Wired". Para escolher mobis, clique neles no quarto com a janela aberta: o mobi ganha um contorno azul e a contagem sobe ("Selecionar Mobi [1/20]"). Termine em <b>Pronto</b>.</li>
+  </ul>
+  <p class="aberto"><b>Travou?</b> Pergunte no grupo do SRC no WhatsApp. Mande o print da pilha com a caixa aberta e diga o que você esperava que acontecesse.</p>
+  <a class="botao" href="https://www.policiarcc.com/h471-ins-src-central" target="_top">Abrir a Central do SRC</a>
+</section>
+<section class="carta" id="ferramentas">
+  <h2>Ferramentas para achar e entender wireds</h2>
+  <table class="tabela">
+    <thead><tr><th>Comando</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">:furni</td><td>Lista os mobis do quarto. Busque "wired" para ver todas as caixas, mesmo escondidas. Clicar num item é como clicar no mobi: abre a janela dele.</td></tr>
+      <tr><td class="mono">:wired</td><td>Abre as Ferramentas do Criador: quantos wireds o quarto usa, as variáveis, a inspeção e os registros (logs).</td></tr>
+    </tbody>
+  </table>
+  <p>Quer aprender com um evento pronto? Entre no quarto, diga <span class="mono">:furni</span>, busque "wired" e abra as caixas uma a uma. É o jeito mais rápido de aprender com o que outra pessoa já montou.</p>
+</section>
+</div>
+<div class="painel painel-ativadores">
+<section class="carta" id="t-ativadores">
+  <h2>Ativadores: quando a pilha dispara</h2>
+  <p>Toda pilha começa com um ativador. Ele é o "quando": alguém fala, pisa, clica, entra no quarto, ou o tempo passa. A pilha tem um ativador só; para dois gatilhos diferentes, faça duas pilhas.</p>
+  <p>Quem disparou o ativador é o "usuário acionador". Sem seletor, os efeitos agem nele.</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_says_something.f82f22ff3d.png" width="30" height="30" alt="">Habbo diz algo <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Dispara quando alguém fala a palavra ou frase configurada. É a caixa dos comandos.</p>
+  <p class="sub"><b>Na janela:</b> "O que é dito"; o tipo (<b>Contém palavra-chave</b>, <b>Combinação exata</b> ou <b>Concordar com todo o texto</b>); <b>Ocultar a mensagem do gatilho</b>; <b>Somente o proprietário da sala pode acionar</b>.</p>
+  <p class="sub"><b>Exemplo:</b> o comando <span class="mono">iniciar</span> do ministrante.</p>
+  <p class="sub aviso-cx"><b>Atenção:</b> use Combinação exata nos comandos. Em "Contém palavra-chave", uma frase qualquer que tenha a palavra também dispara.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_walks_on_furni.73cedc7a6c.png" width="30" height="30" alt="">Habbo anda no Mobi</h3>
+  <p>Dispara quando alguém pisa ou senta num dos mobis escolhidos.</p>
+  <p class="sub"><b>Na janela:</b> escolha até 20 mobis clicando neles no quarto.</p>
+  <p class="sub"><b>Exemplo:</b> um piso de resposta, a linha de chegada, uma poltrona.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_walks_off_furni.7f4dbab380.png" width="30" height="30" alt="">Habbo sai do Mobi</h3>
+  <p>Dispara quando alguém sai de cima de um dos mobis escolhidos.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> quem levantar da cadeira antes da hora recebe um aviso.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_state_changed.b78ca8e175.png" width="30" height="30" alt="">Mobi é usado <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Dispara quando alguém usa o mobi escolhido: dois cliques rápidos, ou "usar" nas informações do mobi.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis (por exemplo, uma alavanca).</p>
+  <p class="sub"><b>Exemplo:</b> a alavanca do ministrante que guarda as cadeiras ou abre as portas.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_click_furni.81560bddba.png" width="30" height="30" alt="">Habbo clica no Mobi</h3>
+  <p>Dispara com um clique simples no mobi, sem precisar de dois cliques.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> um botão que o participante aperta para responder.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_click_user.bf6d9f4bc4.png" width="30" height="30" alt="">Usuário clica em Usuário</h3>
+  <p>Dispara quando alguém clica em outro avatar.</p>
+  <p class="sub"><b>Na janela:</b> <b>Não abrir o menu do avatar</b> e <b>Não gire</b>, para o clique não abrir o menu nem virar o boneco.</p>
+  <p class="sub"><b>Exemplo:</b> o ministrante clica no participante que vai ser eliminado ou salvo.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_enter_room.abc9012599.png" width="30" height="30" alt="">Habbo entra no Quarto <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Dispara quando alguém entra no quarto. Não tem nada para configurar.</p>
+  <p class="sub"><b>Exemplo:</b> a mensagem de boas-vindas do evento.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_periodically.bb8bf58076.png" width="30" height="30" alt="">Repetir Efeito <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Dispara sozinho, de tempos em tempos, sem ninguém fazer nada.</p>
+  <p class="sub"><b>Na janela:</b> o intervalo, de meio segundo a 60 segundos.</p>
+  <p class="sub"><b>Exemplo:</b> fazer esferas andarem pela arena o tempo todo.</p>
+  <p class="sub aviso-cx"><b>Atenção:</b> intervalo muito curto com muitos efeitos deixa o quarto lento.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_collision.6c23809906.png" width="30" height="30" alt="">Batida <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Dispara quando um mobi que anda com <b>Perseguir</b> (ou Mudar Direção do Mobi) bate em alguém. Quem levou a batida é o acionador.</p>
+  <p class="sub"><b>Na janela:</b> nada para configurar.</p>
+  <p class="sub"><b>Exemplo:</b> a esfera bateu, o participante vai para os bancos de fora.</p>
+</div>
+  <h3>Como é a janela de uma caixa</h3>
+  <div class="janela" role="img" aria-label="Desenho da janela Mobis Wired da caixa Habbo diz algo, com o comando iniciar e Combinação exata">
+    <div class="barra">Mobis Wired</div>
+    <div class="tipo"><b>ATIVADOR WIRED</b><span>Habbo diz algo</span></div>
+    <div class="campo"><b>O que é dito:</b><div class="entrada">iniciar</div></div>
+    <div class="campo"><b>Escolha o tipo:</b><span class="opcao">Contém palavra-chave</span><span class="opcao marcada">Combinação exata</span><span class="opcao">Concordar com todo o texto</span></div>
+    <div class="campo"><b>Selecione as opções:</b><span class="opcao caixinha">Ocultar a mensagem do gatilho</span><span class="opcao caixinha">Somente o proprietário da sala pode acionar</span></div>
+    <div class="botoes"><span>Pronto</span><span>Cancelar</span></div>
+  </div>
+  <p class="legenda">Desenho da janela do jogo, com os campos dela. Use Combinação exata para só a palavra inteira valer.</p>
+</section>
+</div>
+<div class="painel painel-condicoes">
+<section class="carta" id="t-condicoes">
+  <h2>Condições: só se</h2>
+  <p>A condição é opcional. Ela confere algo antes dos efeitos rodarem; se não passar, nada acontece. Com várias condições na pilha, <b>todas</b> precisam passar (para "basta uma", veja o extra Pelo menos uma condição é verdadeira, na aba Extras).</p>
+  <p>Toda condição tem uma irmã <b>negativa</b>, que confere o contrário. Ex.: "Não é membro do grupo".</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_trggrer_on_frn.9c43c1ca26.png" width="30" height="30" alt="">Habbo Ativador está no Mobi <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Só passa se quem disparou estiver em cima de um dos mobis escolhidos.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> a trava do ministrante: o comando só funciona para quem está sentado na cadeira dele.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_match_snapshot.ba68f9cd03.png" width="30" height="30" alt="">Estado e Posição do Mobi combinam <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Só passa se os mobis escolhidos estiverem como estavam na hora em que você salvou a caixa (posição e estado).</p>
+  <p class="sub"><b>Na janela:</b> arrume os mobis como devem estar, escolha-os e salve.</p>
+  <p class="sub"><b>Exemplo:</b> o comando só funciona se a alavanca estiver ligada.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_furnis_hv_avtrs.71a7a022a4.png" width="30" height="30" alt="">Mobis com Habbos <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Só passa se <b>todos</b> os mobis escolhidos tiverem alguém em cima.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> a rodada só começa quando todas as cadeiras estão ocupadas.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_actor_in_group.28718c5bf4.png" width="30" height="30" alt="">Membro do Grupo <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Só passa se quem disparou for membro do grupo do quarto.</p>
+  <p class="sub"><b>Exemplo:</b> um comando que só membros do grupo do SRC podem usar.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_actor_in_team.f44ae24348.png" width="30" height="30" alt="">Membro da Equipe</h3>
+  <p>Só passa se quem disparou estiver na equipe configurada (as equipes de jogo do Habbo).</p>
+  <p class="sub"><b>Na janela:</b> escolha a equipe.</p>
+  <p class="sub"><b>Exemplo:</b> só a equipe vermelha marca ponto naquela chegada.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_has_handitem.810cc96962.png" width="30" height="30" alt="">Usuário tem item de mão</h3>
+  <p>Só passa se quem disparou estiver segurando o item de mão configurado (bebida, comida etc.).</p>
+  <p class="sub"><b>Na janela:</b> escolha o item.</p>
+  <p class="sub"><b>Exemplo:</b> só entra quem pegou o item no frigobar.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_user_count_in.5a9bb27e9c.png" width="30" height="30" alt="">Número de usuários no quarto</h3>
+  <p>Só passa se o número de pessoas no quarto estiver entre o mínimo e o máximo configurados.</p>
+  <p class="sub"><b>Na janela:</b> o mínimo e o máximo.</p>
+  <p class="sub"><b>Exemplo:</b> o evento só começa com pelo menos 5 pessoas.</p>
+</div>
+</section>
+</div>
+<div class="painel painel-efeitos">
+<section class="carta" id="t-efeitos">
+  <h2>Efeitos: o que acontece</h2>
+  <p>O efeito é o "então". Uma pilha pode ter vários efeitos. Sem o extra Executa na Ordem, a ordem entre eles não é garantida.</p>
+  <p>Todo efeito tem <b>Atraso (segundos)</b>, para acontecer um pouco depois. Muitos têm <b>Mostrar configurações avançadas</b>, onde se escolhe em quem ele age: no usuário acionador ou nos usuários do seletor.</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_show_message.21d27b4660.png" width="30" height="30" alt="">Mostrar mensagem <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Mostra uma mensagem para quem disparou a pilha.</p>
+  <p class="sub"><b>Na janela:</b> "Mensagem", <b>Visibilidade da mensagem</b>, <b>Estilo de notificação</b> e o atraso.</p>
+  <p class="sub"><b>Exemplo:</b> as boas-vindas, ou "Você está imune nesta rodada".</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_teleport_to.40a2143ca9.png" width="30" height="30" alt="">Teleportar para Mobi <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Leva a pessoa até o mobi escolhido. Com vários mobis escolhidos, ela vai para um deles, sorteado.</p>
+  <p class="sub"><b>Na janela:</b> escolha o destino; <b>Teletransporte rápido</b>; nas avançadas, "Selecionar usuários fonte" (o acionador ou <b>Usar usuários do seletor</b>).</p>
+  <p class="sub"><b>Exemplo:</b> os comandos iniciar e perdy; com um seletor, leva todos de uma área.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_toggle_state.dadb15feae.png" width="30" height="30" alt="">Mudar estado do Mobi <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Muda o estado do mobi como se alguém desse dois cliques nele.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> abrir o portão, acender uma lâmpada, ligar o cronômetro.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_match_to_sshot.bb428aa2a6.png" width="30" height="30" alt="">Mobis que voltam à programação original <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Põe os mobis escolhidos de volta como estavam quando você salvou a caixa.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis e marque o que volta: a posição no quarto e o estado.</p>
+  <p class="sub"><b>Exemplo:</b> guardar as cadeiras ou recolocar as esferas na arena.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_freeze.4a42deb131.png" width="30" height="30" alt="">Congelar Habbo <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Prende a pessoa no lugar. Ela não consegue andar até ser descongelada.</p>
+  <p class="sub"><b>Na janela:</b> o efeito visual (Wired Freeze, Congelado, Raio-x, Passarinhos ou Armadilha); nas avançadas, em quem age.</p>
+  <p class="sub"><b>Exemplo:</b> segurar todos parados entre uma rodada e outra.</p>
+  <p class="sub aviso-cx"><b>Atenção:</b> congelar não impede que outro wired mova a pessoa (teleporte, por exemplo).</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_unfreeze.690bf1d217.png" width="30" height="30" alt="">Descongelar Habbo <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Solta quem estava congelado.</p>
+  <p class="sub"><b>Na janela:</b> nas avançadas, em quem age.</p>
+  <p class="sub"><b>Exemplo:</b> o comando que libera os participantes para a próxima rodada.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_chase.42a2a04c09.png" width="30" height="30" alt="">Perseguir <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Faz o mobi andar até a pessoa mais próxima na mesma linha ou coluna. Quando encosta, dispara a Batida.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis que perseguem.</p>
+  <p class="sub"><b>Exemplo:</b> esferas que correm atrás dos participantes.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_move_rotate.3d15ecbe35.png" width="30" height="30" alt="">Mover e Rotacionar Mobi <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Move e gira os mobis escolhidos.</p>
+  <p class="sub"><b>Na janela:</b> a direção do movimento (inclusive para qualquer lado) e o giro.</p>
+  <p class="sub"><b>Exemplo:</b> esferas que andam soltas pela arena. Sozinho não causa Batida.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_set_highlight.fbf9fbf51f.png" width="30" height="30" alt="">Definir Realce <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Destaca um mobi ou um usuário no quarto.</p>
+  <p class="sub"><b>Na janela:</b> o tipo de realce, a intensidade e, em alguns tipos, a cor.</p>
+  <p class="sub"><b>Exemplo:</b> destacar quem está imune.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_log.c275fc7477.png" width="30" height="30" alt="">Escrever nos logs <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Grava uma mensagem nos registros de Wired do quarto. Não aparece para os participantes.</p>
+  <p class="sub"><b>Na janela:</b> o texto.</p>
+  <p class="sub"><b>Exemplo:</b> registrar quem entrou no evento, para conferir depois em <span class="mono">:wired</span>.</p>
+</div>
+</section>
+</div>
+<div class="painel painel-seletores">
+<section class="carta" id="t-seletores">
+  <h2>Seletores: em quem o efeito age</h2>
+  <p>Sem seletor, o efeito age só em quem disparou a pilha. O seletor troca isso: ele escolhe <b>várias</b> pessoas ou mobis na hora, e o efeito age em todos eles.</p>
+  <p>Para funcionar, o efeito precisa saber que deve usar o seletor: nas configurações avançadas dele, escolha <b>Usar usuários do seletor</b> (ou "Usar mobis do seletor").</p>
+  <p>Opções comuns aos seletores: <b>Filtrar seleção existente</b> (junta com o que outro seletor já pegou) e <b>Inverter</b> (pega quem está fora).</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-slc_users_area.253999433d.png" width="30" height="30" alt="">Habbos na Área <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Seleciona todo mundo que está dentro de uma área do quarto.</p>
+  <p class="sub"><b>Na janela:</b> <b>Selecione a área</b> e arraste no quarto; <b>Limpar</b> apaga a área.</p>
+  <p class="sub"><b>Exemplo:</b> um comando que leva todos da arena para os bancos de uma vez.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-slc_users_onfurni.35add50f58.png" width="30" height="30" alt="">Habbos no Mobi</h3>
+  <p>Seleciona quem está em cima dos mobis escolhidos.</p>
+  <p class="sub"><b>Na janela:</b> escolha os mobis.</p>
+  <p class="sub"><b>Exemplo:</b> todos que estão nas poltronas vermelhas perdem.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-slc_furni_area.e5ba850288.png" width="30" height="30" alt="">Mobi na Área</h3>
+  <p>Seleciona os mobis que estão dentro de uma área.</p>
+  <p class="sub"><b>Na janela:</b> selecione a área.</p>
+  <p class="sub"><b>Exemplo:</b> ligar todas as lâmpadas de uma área sem escolher uma por uma.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-slc_users_team.cf322cfd41.png" width="30" height="30" alt="">Habbos na Equipe</h3>
+  <p>Seleciona quem está na equipe configurada.</p>
+  <p class="sub"><b>Na janela:</b> escolha a equipe.</p>
+  <p class="sub"><b>Exemplo:</b> teleportar a equipe azul inteira.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_filter_users.43bac47a6d.png" width="30" height="30" alt="">Filtro: Quantidade de Usuários</h3>
+  <p>Não seleciona sozinho: reduz a seleção de outro seletor a uma quantidade.</p>
+  <p class="sub"><b>Na janela:</b> a quantidade.</p>
+  <p class="sub"><b>Exemplo:</b> da área toda, pegar só uma pessoa.</p>
+</div>
+</section>
+</div>
+<div class="painel painel-variaveis">
+<section class="carta" id="t-variaveis">
+  <h2>Variáveis: marcar quem é quem</h2>
+  <p>Uma variável é uma informação que o Wired guarda e depois confere ou muda. Pense numa etiqueta com um valor: "imune", "vidas = 3", "pontos = 10".</p>
+  <p>Os tipos dizem onde a etiqueta fica:</p>
+  <table class="tabela">
+    <thead><tr><th>Tipo</th><th>Onde fica</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ico" src="img/icone-var_user.b7261f4dfa.png" width="30" height="30" alt="">Usuário</td><td>Em cada pessoa, com um valor para cada uma. Ex.: quem está imune. <span class="carimbo c-ok selo">Usado no SRC</span></td></tr>
+      <tr><td><img class="ico" src="img/icone-var_furni.02fc341e1e.png" width="30" height="30" alt="">Mobi</td><td>Em cada mobi. Ex.: quantas vezes um botão foi apertado.</td></tr>
+      <tr><td><img class="ico" src="img/icone-var_room.ed9757af26.png" width="30" height="30" alt="">Global</td><td>Uma só para o quarto. Ex.: número da rodada.</td></tr>
+      <tr><td><img class="ico" src="img/icone-var_context.8ed4bf06f2.png" width="30" height="30" alt="">Contexto</td><td>Só durante a execução da pilha; some quando ela termina.</td></tr>
+    </tbody>
+  </table>
+  <p><b>Primeiro crie a variável:</b> ponha o wired do tipo (por exemplo, Wired Variável: Usuário) no quarto e dê um nome a ela. Depois use as caixas abaixo. Para ver as variáveis do quarto, diga <span class="mono">:wired</span> e abra a aba Variables.</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_give_var.a2de039caa.png" width="30" height="30" alt="">Dar Variável <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Efeito: põe a variável, com o valor configurado, em quem disparou (ou nos usuários do seletor).</p>
+  <p class="sub"><b>Na janela:</b> a variável e o valor.</p>
+  <p class="sub"><b>Exemplo:</b> quem pisou no piso azul ganha "imune".</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_remove_var.33abf9d278.png" width="30" height="30" alt="">Remover Variável <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Efeito: tira a variável.</p>
+  <p class="sub"><b>Na janela:</b> a variável.</p>
+  <p class="sub"><b>Exemplo:</b> no começo de cada rodada, tirar "imune" de todos.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-act_change_var_val.3b99279657.png" width="30" height="30" alt="">Mudar Valor Variável</h3>
+  <p>Efeito: altera o valor de uma variável (somar, diminuir, trocar).</p>
+  <p class="sub"><b>Na janela:</b> a variável e a conta.</p>
+  <p class="sub"><b>Exemplo:</b> quem errou perde uma vida.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_has_var.2d9b697f02.png" width="30" height="30" alt="">Tem Variável <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Condição: só passa se quem disparou tiver a variável.</p>
+  <p class="sub"><b>Na janela:</b> a variável. A versão negativa confere quem <b>não</b> tem.</p>
+  <p class="sub"><b>Exemplo:</b> o comando de eliminar não funciona em quem tem "imune".</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-cnd_var_val_match.656b6c8f49.png" width="30" height="30" alt="">Valor Variável</h3>
+  <p>Condição: só passa se o valor da variável bater com o configurado.</p>
+  <p class="sub"><b>Na janela:</b> a variável, a comparação e o valor.</p>
+  <p class="sub"><b>Exemplo:</b> só quem tem 3 pontos ou mais avança.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-trg_var_changed.05dee05968.png" width="30" height="30" alt="">Variável Mudou</h3>
+  <p>Ativador: dispara quando uma variável é criada, alterada ou removida.</p>
+  <p class="sub"><b>Na janela:</b> escolha a variável.</p>
+  <p class="sub"><b>Exemplo:</b> quando as vidas chegam a zero, a pessoa sai do jogo.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-slc_users_with_var.8591fd20a7.png" width="30" height="30" alt="">Usuários com Variável</h3>
+  <p>Seletor: pega todos que têm a variável.</p>
+  <p class="sub"><b>Na janela:</b> a variável.</p>
+  <p class="sub"><b>Exemplo:</b> levar todos os "imunes" de volta ao jogo.</p>
+</div>
+  <p class="aberto"><b>A confirmar no jogo:</b> as opções exatas de cada janela de variável. As variáveis são a parte do Wired que mais muda com as atualizações do Habbo.</p>
+</section>
+</div>
+<div class="painel painel-extras">
+<section class="carta" id="t-extras">
+  <h2>Extras: ajustes da pilha</h2>
+  <p>O extra não é ativador, condição nem efeito. Ele muda o jeito como a pilha funciona. Vai no mesmo quadrado, junto com as outras caixas.</p>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_exec_in_order.45d132eabd.png" width="30" height="30" alt="">Executa na Ordem</h3>
+  <p>Faz os efeitos rodarem na ordem em que estão empilhados, de baixo para cima.</p>
+  <p class="sub"><b>Exemplo:</b> primeiro guardar os mobis, depois acender a lâmpada certa.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_execution_limit.6827817097.png" width="30" height="30" alt="">Limite de Execução <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Limita quantas vezes a pilha pode rodar num intervalo de tempo.</p>
+  <p class="sub"><b>Na janela:</b> quantas vezes e em quanto tempo.</p>
+  <p class="sub"><b>Exemplo:</b> impedir que alguém repita o comando várias vezes seguidas.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_text_output_username.2e57d8ed9e.png" width="30" height="30" alt="">Texto Extra: Campo Nome de Usuário <span class="carimbo c-ok selo">Usado no SRC</span></h3>
+  <p>Põe o nome de um usuário dentro do texto de outro wired (por exemplo, no Mostrar mensagem).</p>
+  <p class="sub"><b>Exemplo:</b> "Olá, fulano! Seja bem-vindo(a)".</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_or_eval.a1f4f562da.png" width="30" height="30" alt="">Pelo menos uma condição é verdadeira</h3>
+  <p>Troca o "todas as condições" por "basta uma" (ou uma quantidade configurada).</p>
+  <p class="sub"><b>Na janela:</b> quantas condições precisam passar.</p>
+  <p class="sub"><b>Exemplo:</b> o comando funciona para quem está na cadeira <b>ou</b> é membro do grupo.</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_random.24b3f42abd.png" width="30" height="30" alt="">Efeito Aleatório</h3>
+  <p>Com ele, só um dos efeitos da pilha roda por vez, sorteado.</p>
+  <p class="sub"><b>Exemplo:</b> sortear para qual lado a esfera vai.</p>
+  <p class="sub aviso-cx"><b>Atenção:</b> jogo decidido por sorte não pode dar prêmio de valor do Habbo (diretrizes do Habbo).</p>
+</div>
+<div class="caixa">
+  <h3><img class="ico" src="img/icone-xtra_unseen.b02c1c3a33.png" width="30" height="30" alt="">Efeito Inédito</h3>
+  <p>Também roda só um efeito por vez, como o Aleatório.</p>
+  <p class="sub aviso-cx"><b>Atenção:</b> a diferença exata para o Aleatório ainda não foi conferida no jogo.</p>
+</div>
+</section>
+</div>
+<div class="painel painel-aprenda">
+<section class="carta" id="aprenda">
+  <h2>Aprenda Wired em 6 exercícios</h2>
+  <p>Faça num quarto seu, na ordem. Cada exercício usa o anterior e termina com um teste. Leva uns 30 minutos no total. Quando acabar, você consegue ler e montar as pilhas de um evento do SRC.</p>
+
+  <h3>1. A primeira pilha: pisou, apareceu</h3>
+  <p>Objetivo: entender ativador e efeito.</p>
+  <ol class="passos">
+    <li>Ponha um piso qualquer no chão.</li>
+    <li>Ao lado, ponha um <b>Habbo anda no Mobi</b>. Abra e clique no piso: ele ganha contorno azul. Toque em Pronto.</li>
+    <li>Em cima do mesmo quadrado, ponha um <b>Mostrar mensagem</b>. Escreva "Pisou!" e toque em Pronto.</li>
+  </ol>
+  <div class="pilha">
+    <span class="nome-pilha">Exercício 1</span>
+    <ul>
+      <li><span class="peca p-ativ">Ativador</span> Habbo anda no Mobi: o piso</li>
+      <li><span class="peca p-efe">Efeito</span> Mostrar mensagem: "Pisou!"</li>
+    </ul>
+  </div>
+  <figure class="print pilha-fig"><img src="img/wired-pilha-pisou.ca7c09c2a0.png" width="224" height="141" loading="lazy" alt="Pilha de duas caixas wired num quadrado do piso, em perspectiva: embaixo Habbo anda no Mobi, em cima Mostrar mensagem"><figcaption>A pilha do exercício 1: Habbo anda no Mobi embaixo, Mostrar mensagem em cima.</figcaption></figure>
+  <p><b>Teste:</b> saia do piso e pise de novo. Aparece "Pisou!". Não apareceu? Confira se as duas caixas estão no mesmo quadrado.</p>
+
+  <h3>2. Um comando: falou, foi</h3>
+  <p>Objetivo: ativador por fala e efeito de teleporte. É o "iniciar" de todo evento.</p>
+  <ol class="passos">
+    <li>Ponha um <b>Habbo diz algo</b>. Escreva <span class="mono">iniciar</span> e marque <b>Combinação exata</b>.</li>
+    <li>No mesmo quadrado, ponha um <b>Teleportar para Mobi</b> e escolha um piso do outro lado do quarto.</li>
+  </ol>
+  <figure class="print pilha-fig"><img src="img/wired-pilha-iniciar.7b8bb70924.png" width="224" height="141" loading="lazy" alt="Pilha de duas caixas wired em perspectiva: embaixo Habbo diz algo, em cima Teleportar para Mobi"><figcaption>A pilha do exercício 2: Habbo diz algo embaixo, Teleportar para Mobi em cima.</figcaption></figure>
+  <p><b>Teste:</b> diga "iniciar": você vai para o piso. Diga "vou iniciar": nada acontece, por causa da Combinação exata.</p>
+
+  <h3>3. A trava do ministrante</h3>
+  <p>Objetivo: condição. Só quem está na cadeira do ministrante usa o comando.</p>
+  <ol class="passos">
+    <li>Ponha uma cadeira: a cadeira do ministrante.</li>
+    <li>Numa pilha nova (comando <span class="mono">guardar</span>), acrescente <b>Habbo Ativador está no Mobi</b> e escolha a cadeira.</li>
+  </ol>
+  <figure class="print pilha-fig"><img src="img/wired-pilha-trava.441b26288c.png" width="224" height="163" loading="lazy" alt="Pilha de três caixas wired num quadrado do piso, vista em perspectiva: embaixo Habbo diz algo, no meio Habbo Ativador está no Mobi, em cima Teleportar para Mobi"><figcaption>A pilha deste exercício, em perspectiva: de baixo para cima, Habbo diz algo, Habbo Ativador está no Mobi e Teleportar para Mobi.</figcaption></figure>
+  <p><b>Teste:</b> fale o comando fora da cadeira: nada. Sente e fale: funciona. Todo comando que só o ministrante pode usar leva essa condição.</p>
+
+  <h3>4. Mover todo mundo de uma vez</h3>
+  <p>Objetivo: seletor. Sem ele, o efeito age só em quem falou. Com ele, age em todos de uma área. É o que mais aparece nos eventos do SRC: um comando que move todos os participantes de uma vez.</p>
+  <ol class="passos">
+    <li>Monte um comando (por exemplo <span class="mono">todos</span>) com a trava do exercício 3.</li>
+    <li>Acrescente um <b>Seletor Habbos na Área</b>. Abra, toque em <b>Selecione a área</b> e arraste no quarto por cima de onde os participantes ficam.</li>
+    <li>Acrescente um <b>Teleportar para Mobi</b> com o destino. Toque em <b>Mostrar configurações avançadas</b> e, em "Selecionar usuários fonte", escolha <b>Usar usuários do seletor</b>.</li>
+  </ol>
+  <div class="pilha">
+    <span class="nome-pilha">Exercício 4</span>
+    <ul>
+      <li><span class="peca p-ativ">Ativador</span> Habbo diz algo: <span class="mono">todos</span></li>
+      <li><span class="peca p-cond">Condição</span> Habbo Ativador está no Mobi: a cadeira do ministrante</li>
+      <li><span class="peca p-extra">Seletor</span> Habbos na Área: a área dos participantes</li>
+      <li><span class="peca p-efe">Efeito</span> Teleportar para Mobi: o destino, com "Usar usuários do seletor"</li>
+    </ul>
+  </div>
+  <figure class="print pilha-fig"><img src="img/wired-pilha-seletor.4d057dc91f.png" width="224" height="195" loading="lazy" alt="Pilha de quatro caixas wired em perspectiva: de baixo para cima Habbo diz algo, Habbo Ativador está no Mobi, Seletor Habbos na Área e Teleportar para Mobi"><figcaption>A pilha do exercício 4, de baixo para cima: Habbo diz algo, a trava, o Seletor Habbos na Área e o Teleportar.</figcaption></figure>
+  <figure class="print"><img src="img/wired-teleportar-janela.448295c345.webp" width="240" height="470" loading="lazy" alt="Janela Mobis Wired do efeito Teleportar para Mobi, com 1 mobi escolhido, atraso 0, configurações avançadas abertas e Usar usuários do seletor"><figcaption>A janela real do Teleportar para Mobi, com "Usar usuários do seletor" nas configurações avançadas.</figcaption></figure>
+  <p><b>Teste:</b> com um amigo (ou uma segunda conta) dentro da área, fale o comando da cadeira: ele vai para o destino. Só você foi? Faltou "Usar usuários do seletor".</p>
+
+  <h3>5. Guardar e recolocar mobis</h3>
+  <p>Objetivo: <b>Mobis que voltam à programação original</b>, que guarda uma "foto" dos mobis.</p>
+  <ol class="passos">
+    <li>Ponha uma cadeira onde ela deve ficar guardada.</li>
+    <li>Monte uma pilha com uma alavanca (<b>Mobi é usado</b>) e <b>Mobis que voltam à programação original</b>. Escolha a cadeira e marque "Atual posição no Quarto".</li>
+  </ol>
+  <figure class="print pilha-fig"><img src="img/wired-pilha-alavanca.455e4f4f46.png" width="224" height="141" loading="lazy" alt="Pilha de duas caixas wired em perspectiva: embaixo Mobi é usado, em cima Mobis que voltam à programação original"><figcaption>A pilha do exercício 5: Mobi é usado embaixo, Mobis que voltam à programação original em cima.</figcaption></figure>
+  <p><b>Teste:</b> mude a cadeira de lugar e use a alavanca: ela volta para onde estava.</p>
+
+  <h3>6. Próximo nível: marcar quem é quem</h3>
+  <p>Objetivo: entender a ideia das variáveis, que os eventos usam para saber quem está imune, salvo ou eliminado. Este é o exercício mais difícil; faça depois dos outros.</p>
+  <ul class="pontos">
+    <li>Uma <b>variável de usuário</b> é uma etiqueta que fica no participante (ex.: "imune").</li>
+    <li><b>Dar Variável</b> cola a etiqueta em quem disparou (ou nos usuários do seletor). <b>Remover Variável</b> tira.</li>
+    <li>A <b>condição de variável</b> deixa a pilha passar só para quem tem (ou não tem) a etiqueta.</li>
+  </ul>
+  <p>Exemplo: quem pisa no piso azul ganha "imune"; o comando de eliminar tem a condição "não tem imune". Assim o azul fica de fora.</p>
+  <p class="aberto"><b>A confirmar com quem programa os eventos do SRC:</b> os nomes exatos das caixas de variável no jogo e onde se cria a variável (nas Ferramentas do Criador, aba Variables).</p>
+  <p class="aberto"><b>Travou num exercício?</b> Confira a tabela de erros comuns logo abaixo. Se não resolver, pergunte no grupo do SRC no WhatsApp com o print da pilha aberta.</p>
+</section>
+<section class="carta" id="erros">
+  <h2>Erros comuns</h2>
+  <table class="tabela">
+    <thead><tr><th>O que acontece</th><th>Causa e conserto</th></tr></thead>
+    <tbody>
+      <tr><td>A pilha não dispara</td><td>Alguma caixa está fora do quadrado. Empilhe tudo no mesmo quadrado.</td></tr>
+      <tr><td>Só quem falou é teleportado</td><td>Falta o seletor, ou o Teleportar não está em "Usar usuários do seletor".</td></tr>
+      <tr><td>Qualquer um usa o comando</td><td>Falta a condição Habbo Ativador está no Mobi com a cadeira do ministrante.</td></tr>
+      <tr><td>O comando dispara com outra frase</td><td>O Habbo diz algo está em "Contém palavra-chave". Troque para Combinação exata.</td></tr>
+      <tr><td>Os efeitos saem fora de ordem</td><td>Sem extra, a ordem não é garantida. Acrescente Executa na Ordem.</td></tr>
+      <tr><td>O comando dispara várias vezes</td><td>Acrescente o extra Limite de Execução.</td></tr>
+      <tr><td>Wired "lixo" no próximo evento</td><td>Caixa guardada com mobi ainda escolhido. Desprograme antes de guardar (veja Desmontar).</td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+<div class="painel painel-montar">
+<section class="carta" id="comandos">
+  <h2>Comandos de todo evento</h2>
+  <p>Os eventos do SRC começam com os mesmos três comandos. Cada um é uma pilha com <b>Habbo diz algo</b> e <b>Teleportar para Mobi</b>.</p>
+  <table class="tabela">
+    <thead><tr><th>Comando</th><th>Quem fala e para onde vai</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">iniciar</td><td>O participante. Vai para o piso ou a cadeira da área do evento.</td></tr>
+      <tr><td class="mono">perdy</td><td>Quem perdeu. Vai para os bancos ou sofás de fora da área.</td></tr>
+      <tr><td class="mono">ministrarevento</td><td>O ministrante. Vai para a cadeira dele.</td></tr>
+    </tbody>
+  </table>
+  <div class="pilha">
+    <span class="nome-pilha">Exemplo: iniciar</span>
+    <ul>
+      <li><span class="peca p-ativ">Ativador</span> Habbo diz algo: <span class="mono">iniciar</span></li>
+      <li><span class="peca p-efe">Efeito</span> Teleportar para Mobi: o piso da área do evento</li>
+    </ul>
+  </div>
+  <div class="pilha">
+    <span class="nome-pilha">Boas-vindas ao entrar</span>
+    <ul>
+      <li><span class="peca p-ativ">Ativador</span> Habbo entra no Quarto</li>
+      <li><span class="peca p-efe">Efeito</span> Mostrar mensagem: "Seja muito bem-vindo(a) a mais um evento do SRC!"</li>
+      <li><span class="peca p-extra">Extra</span> Texto Extra de campo: põe o nome de quem entrou ("Olá, fulano!"). Opcional.</li>
+    </ul>
+  </div>
+  <p><b>Comandos só do ministrante</b> (colocar e guardar esferas, por exemplo) ganham mais uma caixa na pilha: a condição <b>Habbo Ativador está no Mobi</b> com a cadeira do ministrante escolhida. Assim, se um participante falar o comando, nada acontece.</p>
+</section>
+<section class="carta" id="guardar">
+  <h2>Colocar e guardar mobis</h2>
+  <p>A caixa <b>Mobis que voltam à programação original</b> "fotografa" os mobis escolhidos na hora em que você salva. Quando a pilha dispara, eles voltam para aquela foto. Ela tem duas caixinhas de marcar:</p>
+  <ul class="pontos">
+    <li><b>Atual posição no Quarto:</b> o mobi volta para o lugar.</li>
+    <li><b>Atual estado do Mobi:</b> o mobi volta ligado ou desligado, como estava.</li>
+  </ul>
+  <ol class="passos">
+    <li>Ponha os mobis onde eles devem ficar (as esferas na arena, ligadas; ou as cadeiras guardadas).</li>
+    <li>Abra a caixa, escolha os mobis, marque as caixinhas e toque em Pronto.</li>
+    <li>Pronto: o comando ou a alavanca daquela pilha leva os mobis de volta para essa posição.</li>
+  </ol>
+  <p class="aberto"><b>A confirmar no print:</b> os nomes "Atual posição no Quarto" e "Atual estado do Mobi" vêm dos slides. A referência que consultei não mostra essas caixinhas.</p>
+</section>
+<section class="carta" id="upar">
+  <h2>Upar os wireds</h2>
+  <p><b>Upar</b> é subir os wireds de altura, usando a <b>lajota</b> (um mobi de piso que muda de altura). Para os wireds não atrapalharem o evento, eles ficam em cima dos bares que separam a área do evento do resto do quarto, numa altura alta:</p>
+  <ol class="passos">
+    <li>Ponha os wireds nos bares que dividem a área do evento.</li>
+    <li>Coloque uma lajota e suba a altura dela até 30.</li>
+    <li>Com a lajota alta, mexa nos wireds por cima dela: eles sobem junto.</li>
+  </ol>
+  <p>Na Sala de Eventos, os wireds também podem ficar numa plataforma separada, fora da área do evento, .</p>
+  <figure class="print largo"><img src="img/wired-plataforma.4ac4fc63c7.webp" width="700" height="420" loading="lazy" alt="Plataforma preta separada da área do evento, com várias pilhas altas de caixas wired"><figcaption>Wireds de um evento do SRC, numa plataforma fora da área do evento.</figcaption></figure>
+  <figure class="vaga" id="print-upar"><b>Print: wireds upados</b>Os wireds em cima dos bares, com a lajota na altura 30.<span class="arquivo">img/wired-upar.webp</span></figure>
+</section>
+<section class="carta" id="etapas">
+  <h2>Etapas, prazo e prova</h2>
+  <p>Na Central, a liderança cria a demanda de evento com até três etapas, cada uma com membro e prazo:</p>
+  <table class="tabela">
+    <thead><tr><th>Etapa</th><th>O que entregar</th></tr></thead>
+    <tbody>
+      <tr><td>Construção de evento</td><td>O quarto montado. Prova: print do quarto pronto.</td></tr>
+      <tr><td>Programação Wired</td><td>As pilhas funcionando. Prova: print das pilhas e do teste.</td></tr>
+      <tr><td>Ministrar evento</td><td>O evento no dia marcado. Prova: print do evento.</td></tr>
+    </tbody>
+  </table>
+  <p>Nos eventos da reunião quinzenal, a montagem (print da construção e das wireds) vai até 23h59 da quinta antes da reunião geral. Conclua cada etapa pela Central, com o link do print, como uma função da escala.</p>
+</section>
+<section class="carta" id="antes">
+  <h2>Antes do evento: teste</h2>
+  <p>Faça esta lista uns 10 minutos antes de abrir o quarto. Ela também é a prova da etapa Programação Wired na Central: tire o print das pilhas e do teste.</p>
+  <ul class="check">
+    <li>Fale cada comando (iniciar, perdy, ministrarevento e os do evento) e veja se ele faz o que devia.</li>
+    <li>Com uma segunda conta ou um amigo, confira os comandos que mexem em todos (seletor): todos da área vão, não só você.</li>
+    <li>Fora da cadeira do ministrante, fale os comandos dele: nada pode acontecer.</li>
+    <li>Use o comando ou a alavanca de guardar: os mobis voltam para o lugar.</li>
+    <li>Saia e entre no quarto: a mensagem de boas-vindas aparece.</li>
+    <li>Os wireds estão upados ou na plataforma separada, fora do caminho dos participantes.</li>
+  </ul>
+  <p>Algo falhou? Veja a tabela de erros comuns na aba Exercícios.</p>
+</section>
+
+<section class="carta" id="desmontar">
+  <h2>Desmontar um evento</h2>
+  <p class="quem"><span class="carimbo c-espera">Todo evento</span><span class="carimbo c-falta">Falta print</span></p>
+  <p>Desmontar é desprogramar os wireds e guardar os mobis, para o próximo evento começar do zero.</p>
+  <ol class="passos">
+    <li><b>Desça os wireds</b> da lajota para um lugar onde dá para mexer neles.</li>
+    <li><b>Abra cada wired e tire todos os mobis escolhidos.</b> Repetir Efeito e Batida não têm o que tirar.</li>
+    <li><b>Apague o texto</b> do Habbo diz algo e do Mostrar mensagem.</li>
+    <li><b>Confira</b> se todos ficaram vazios. Cuidado com o <b>wired lixo</b>: wired guardado com mobi ainda escolhido, que não serve para mais nada.</li>
+    <li>Diga <span class="mono">abrirc</span> e guarde os mobis nos lugares deles, usando lajotas.</li>
+    <li>Diga <span class="mono">fecharc</span> e tire o print do evento desmontado.</li>
+    <li><b>Conclua pela Central</b> com o link do print. O print não vai mais para o tópico "[SRC] Escala &amp; Diário de Funções".</li>
+  </ol>
+  <div class="janela" id="print-desmontar-vazio" role="img" aria-label="Desenho da janela Mobis Wired da caixa Teleportar para Mobi vazia, com Selecionar Mobi 0 de 20">
+    <div class="barra">Mobis Wired</div>
+    <div class="tipo"><b>EFEITO WIRED</b><span>Teleportar para Mobi</span></div>
+    <div class="campo"><b>Selecionar Mobi [0/20]</b></div>
+    <div class="campo"><b>Selecione as opções:</b><span class="opcao caixinha">Teletransporte rápido</span></div>
+    <div class="avancado">Mostrar configurações avançadas</div>
+    <div class="botoes"><span>Pronto</span><span>Cancelar</span></div>
+  </div>
+  <p class="legenda">Desenho da janela de um wired vazio: nenhum mobi escolhido ([0/20]). É assim que cada caixa fica antes de guardar.</p>
+  <figure class="vaga" id="print-desmontar-quarto"><b>Print 2: o evento desmontado</b>O quarto depois do fecharc, como vai para a Central.<span class="arquivo">img/wired-desmontar-2.webp</span></figure>
+</section>
+</div>
+
+<p class="intro">Fontes: a parte comum e o desmontar vêm do tópico "[SRC] Guia para os Eventos" (t37278), da Hope, com slides do Crisw; os nomes e as janelas das caixas, do <a href="https://docs.wiredclub.com.br/" target="_blank" rel="noopener">Wired Club Docs</a>; prêmios em jogos seguem as <a href="https://help.habbo.com.br/hc/pt-br/articles/40216699639314-Diretrizes-sobre-jogos-criados-por-usu%C3%A1rios-no-Habbo" target="_blank" rel="noopener">diretrizes do Habbo sobre jogos de usuários</a>. Conferido em novembro de 2026.</p>
+</main>
+<footer>Setor de Relações Comunicativas · Departamento de Eventos</footer>
+</body>
+</html>
